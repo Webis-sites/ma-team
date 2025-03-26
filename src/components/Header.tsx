@@ -26,19 +26,11 @@ export default function Header() {
   
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'py-2 shadow-lg backdrop-blur-xl border-b border-white/10' 
-          : 'py-4 backdrop-blur-sm'
+          ? 'py-2 bg-white/80 backdrop-blur-md shadow-lg' 
+          : 'py-4 bg-transparent'
       }`}
-      style={{
-        background: isScrolled 
-          ? 'rgba(255, 255, 255, 0.7)' 
-          : 'rgba(0, 0, 0, 0.15)',
-        backgroundImage: isScrolled 
-          ? 'none' 
-          : 'linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.1) 100%)'
-      }}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         {/* Logo */}
@@ -133,15 +125,10 @@ export default function Header() {
           {isMenuOpen && (
             <motion.div
               initial={{ opacity: 0, backdropFilter: 'blur(0px)' }}
-              animate={{ opacity: 1, backdropFilter: 'blur(15px)' }}
+              animate={{ opacity: 1, backdropFilter: 'blur(10px)' }}
               exit={{ opacity: 0, backdropFilter: 'blur(0px)' }}
               transition={{ duration: 0.3 }}
-              className="md:hidden fixed inset-0 top-0 bg-white/50 z-0 flex flex-col items-center justify-center pt-20"
-              style={{
-                background: 'rgba(255, 255, 255, 0.6)',
-                backgroundImage: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.5))',
-                boxShadow: 'inset 0 0 100px rgba(255, 255, 255, 0.3)'
-              }}
+              className="md:hidden fixed inset-0 top-0 bg-white/80 z-0 flex flex-col items-center justify-center pt-20"
             >
               <nav className="flex flex-col items-center space-y-6 text-center">
                 <Link
